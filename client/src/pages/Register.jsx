@@ -10,7 +10,7 @@ export default function Register() {
 
   const handleRegister = async () => {
     try {
-      await axios.post("https://emsolutions-ai-quiz-and-interview.onrender.com//api/register", { username, email, password });
+      await axios.post("https://emsolutions-ai-quiz-and-interview.onrender.com/api/register", { username, email, password });
       alert("Registration successful. Please log in.");
       navigate("/home");
     } catch (error) {

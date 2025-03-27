@@ -10,7 +10,7 @@ export default function Quiz() {
 
   const fetchQuiz = async () => {
     try {
-      const response = await axios.post("https://emsolutions-ai-quiz-and-interview.onrender.com//0/api/generate-quiz", { topic });
+      const response = await axios.post("https://emsolutions-ai-quiz-and-interview.onrender.com/api/generate-quiz", { topic });
       setQuestions(response.data.questions);
     } catch (error) {
       console.error("Error fetching quiz:", error);

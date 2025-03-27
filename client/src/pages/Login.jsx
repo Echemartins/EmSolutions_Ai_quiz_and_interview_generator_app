@@ -9,7 +9,7 @@ export default function Login() {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("https://emsolutions-ai-quiz-and-interview.onrender.com//api/login", { username, password });
+      const response = await axios.post("https://emsolutions-ai-quiz-and-interview.onrender.com/api/login", { username, password });
       console.log(response);
       localStorage.setItem("token", response.data.token);
       navigate("/home");
