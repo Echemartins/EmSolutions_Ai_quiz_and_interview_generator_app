@@ -10,7 +10,7 @@ export default function Quiz() {
 
   const fetchQuiz = async () => {
     try {
-      const response = await axios.post("http://localhost:4000/api/generate-quiz", { topic });
+      const response = await axios.post("https://emsolutions.onrender.com/0/api/generate-quiz", { topic });
       setQuestions(response.data.questions);
     } catch (error) {
       console.error("Error fetching quiz:", error);
@@ -36,7 +36,7 @@ export default function Quiz() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "http://localhost:4000/api/score",
+        "https://emsolutions.onrender.com/0/api/score",
         { score: calculatedScore },
         {
           headers: {

@@ -10,7 +10,7 @@ export default function Leaderboard() {
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
-        const response = await axios.get("http://localhost:4000/api/leaderboard");
+        const response = await axios.get("https://emsolutions.onrender.com/0/api/leaderboard");
         setLeaderboard(response.data);
         setLoading(false);
       } catch (err) {
