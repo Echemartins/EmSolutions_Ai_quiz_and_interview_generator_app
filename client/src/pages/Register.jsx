@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import {toast} from "react-toastify"
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -11,8 +12,8 @@ export default function Register() {
   const handleRegister = async () => {
     try {
       await axios.post("https://emsolutions-ai-quiz-and-interview.onrender.com/api/register", { username, email, password });
-      alert("Registration successful. Please log in.");
-      navigate("/home");
+      toast.success("Registration successful. Please log in.")
+      navigate("/");
     } catch (error) {
       alert("Error during registration: " + (error.response?.data?.error || "An error occurred"));
     }

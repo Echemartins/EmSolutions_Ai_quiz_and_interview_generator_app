@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Sidebar from "../assets/components/Sidebar";
+import {toast} from "react-toastify"
 
 export default function Quiz() {
   const [topic, setTopic] = useState("");
@@ -36,7 +37,7 @@ export default function Quiz() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
-        "https://emsolutions-ai-quiz-and-interview.onrender.com//0/api/score",
+        "https://emsolutions-ai-quiz-and-interview.onrender.com/api/score",
         { score: calculatedScore },
         {
           headers: {
@@ -46,23 +47,23 @@ export default function Quiz() {
       );
 
       if (response.status === 200) {
-        alert("Score saved successfully!");
+        toast.success("score saved succesfully")
       } else {
-        alert("Failed to save score.");
+        toast.error("Failed to save score.");
       }
     } catch (error) {
-      console.error("Error saving score:", error.response ? error.response.data : error.message);
-      alert("An error occurred while saving the score.");
+      toast.error(error.message)
+      // console.error("Error saving score:", error.response ? error.response.data : error.message);
+      // alert("An error occurred while saving the score.");
     }
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
-      {/* Sidebar */}
+    <div className="bg-red-500 flex" >
+      
       <Sidebar />
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center bg-gradient-to-r from-purple-100 to-green-100 min-h-screen p-6 md:p-8">
+      <div className="ml-18 flex-1 flex flex-col items-center bg-gradient-to-r from-purple-100 to-green-100 min-h-screen p-6 md:p-8">
         <h1 className="text-3xl md:text-4xl font-bold text-green-700 text-center mb-6">
           AI-Powered Quiz
         </h1>
@@ -110,7 +111,7 @@ export default function Quiz() {
 
             <button
               onClick={handleSubmit}
-              className="mt-6 w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-all"
+              className="mt-6 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-800 transition-all"
             >
               Submit Quiz
             </button>

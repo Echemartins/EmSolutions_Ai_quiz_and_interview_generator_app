@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-100 via-green-100 to-purple-200 text-center">
+    <div className="p-4 flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-100 via-green-100 to-purple-200 text-center">
       {/* Title Section */}
       <div className="max-w-2xl text-center">
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-10 text-purple-700">

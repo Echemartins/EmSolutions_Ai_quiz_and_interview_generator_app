@@ -5,10 +5,12 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Leaderboard from "./pages/LeaderBoard";
 import Interview from "./pages/Interview";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <Router>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />

@@ -57,7 +57,7 @@ export default function Leaderboard() {
                   <th className="py-2 px-4 border border-gray-300">Rank</th>
                   <th className="py-2 px-4 border border-gray-300">Username</th>
                   <th className="py-2 px-4 border border-gray-300">Score</th>
-                  <th className="py-2 px-4 border border-gray-300">Quizzes Taken</th>
+                  {/* <th className="py-2 px-4 border border-gray-300">Quizzes Taken</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -69,8 +69,8 @@ export default function Leaderboard() {
                     >
                       <td className="py-2 px-4 border border-gray-300">{index + 1}</td>
                       <td className="py-2 px-4 border border-gray-300">{user.username}</td>
-                      <td className="py-2 px-4 border border-gray-300">{user.score}</td>
-                      <td className="py-2 px-4 border border-gray-300">{user.quizzesTaken}</td>
+                      <td className="py-2 px-4 border border-gray-300">{user.totalScore}</td>
+                      {/* <td className="py-2 px-4 border border-gray-300">{user.quizzesTaken}</td> */}
                     </tr>
                   ))
                 ) : (

@@ -17,6 +17,8 @@
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.12.1",
-    "openai": "^4.87.3"
+    "openai": "^4.87.3",
+    "react-toastify": "^11.0.5",
+    "toastify-js": "^1.12.0"
   }
 }

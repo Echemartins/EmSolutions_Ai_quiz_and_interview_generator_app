@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [username, setUsername] = useState(""); 
@@ -10,17 +13,34 @@ export default function Login() {
   const handleLogin = async () => {
     try {
       const response = await axios.post("https://emsolutions-ai-quiz-and-interview.onrender.com/api/login", { username, password });
-      console.log(response);
+      
+      // Store token in localStorage
       localStorage.setItem("token", response.data.token);
-      navigate("/home");
+      toast.success("signed in succesfully")
+      // Display success toast
+      // Toastify({
+      //   text: "Login successful! Redirecting to home...",
+      //   duration: 7000,
+      //   gravity: "top", // Toast position: top or bottom
+      //   position: "right", // Toast alignment: left, center, or right
+      //   backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)", // Gradient background
+      //   close: true, // Show close button
+      // }).showToast();
+
+      // Navigate to home page after a delay
+      setTimeout(() => {
+        navigate("/home");
+      }, 3000); 
     } catch (error) {
       console.log(error);
+      toast.error(error.response?.data?.error || "error signing in")
+      // Display error message
       alert("Login failed: " + (error.response?.data?.error || "An error occurred"));
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-100 via-purple-100 to-green-200">
+    <div className="p-4 min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-100 via-purple-100 to-green-900">
       <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-sm">
         <h1 className="text-3xl font-bold text-green-700 text-center mb-6">Login</h1>
         {/* Username Input */}
